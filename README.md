@@ -15,14 +15,6 @@ platformto get hands-on with Workers AI.
 Cold start runs in under ~50ms on the edge; inference is billed per neuron via
 Cloudflare's pay-as-you-go model, so idle cost is zero.
 
-## Why this exists
-
-Building a throwaway AI feature end-to-end — UI, prompt, inference, deploy — in
-under an afternoon is exactly the kind of rapid-prototyping loop a customer-facing
-engineering team would use to test whether an LLM can actually solve a workflow
-before anyone invests real engineering time. This is my practice version of that
-loop.
-
 ## Run it locally
 
 ```bash
