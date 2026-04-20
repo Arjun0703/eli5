@@ -1,23 +1,45 @@
-## Usage
+# Explain Like I'm 5
 
-You can run the Worker defined by your new project by executing `wrangler dev` in this
-directory. This will start up an HTTP server and will allow you to iterate on your
-Worker without having to restart `wrangler`.
+A tiny web app that takes any topic and returns a plain-English, jargon-free
+explanation suitable for a child. Built end-to-end on Cloudflare's developer
+platform as a weekend project to get hands-on with Workers AI.
 
-### Types and autocomplete
+**Live demo:** https://my-ai-worker.misteragsharma.workers.dev/
 
-This project also includes a pyproject.toml with some requirements which
-set up autocomplete and type hints for this Python Workers project.
+## Stack
 
-To get these installed you'll need `uv`, which you can install by following
-https://docs.astral.sh/uv/getting-started/installation/.
+- **Cloudflare Workers (Python)** — serverless runtime, single-file deploy
+- **Workers AI** — `@cf/meta/llama-3-8b-instruct` for inference, no external API keys
+- **Wrangler** — local dev and deploy tooling
 
-Once `uv` is installed, you can run the following:
+Cold start runs in under ~50ms on the edge; inference is billed per neuron via
+Cloudflare's pay-as-you-go model, so idle cost is zero.
 
+## Why this exists
+
+Building a throwaway AI feature end-to-end — UI, prompt, inference, deploy — in
+under an afternoon is exactly the kind of rapid-prototyping loop a customer-facing
+engineering team would use to test whether an LLM can actually solve a workflow
+before anyone invests real engineering time. This is my practice version of that
+loop.
+
+## Run it locally
+
+```bash
+npm install
+npx wrangler dev
 ```
-uv venv
-uv sync
+
+Then open http://localhost:8787.
+
+## Deploy
+
+```bash
+npx wrangler deploy
 ```
 
-Then point your editor's Python plugin at the `.venv` directory. You should then have working
-autocomplete and type information in your editor.
+## Possible next steps
+
+- Stream the model response word-by-word via SSE
+- Cache popular topics in Workers KV to cut inference cost
+- Put AI Gateway in front of the inference call for observability and rate limits
