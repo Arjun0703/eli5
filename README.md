@@ -2,7 +2,7 @@
 
 A tiny web app that takes any topic and returns an 
 explanation suitable for a child. Built end-to-end on Cloudflare's developer
-platformto get hands-on with Workers AI.
+platform to get hands-on with Workers AI.
 
 **Live demo:** https://my-ai-worker.misteragsharma.workers.dev/
 
