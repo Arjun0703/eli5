@@ -9,7 +9,7 @@ platform to get hands-on with Workers AI.
 ## Stack
 
 - **Cloudflare Workers (Python)** — serverless runtime, single-file deploy
-- **Workers AI** — `@cf/meta/llama-3-8b-instruct` for inference, no external API keys
+- **Workers AI** — `@cf/meta/llama-3.1-8b-instruct-fast` for inference, no external API keys
 - **Wrangler** — local dev and deploy tooling
 
 Cold start runs in under ~50ms on the edge; inference is billed per neuron via
