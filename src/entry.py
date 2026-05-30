@@ -21,7 +21,7 @@ class Default(WorkerEntrypoint):
         # Call the model, with a graceful fallback if it fails
         try:
             result = await self.env.AI.run(
-                "@cf/meta/llama-3-8b-instruct",
+                "@cf/meta/llama-3.1-8b-instruct-fast",
                 to_js({
                     "messages": [
                         {
